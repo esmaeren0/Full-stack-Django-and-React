@@ -8,10 +8,10 @@ function Login() {
       <div className="row">
         <div className="col-md-6 d-flex align-items-center">
           <div className="content text-center px-4">
-            <h1 className="text-primary">Welcome to Postagram!</h1>
+            <h1 className="text-primary">Welcome to StayBooker!</h1>
             <p className="content">
-              Login now and start enjoying! <br />
-              Or if you don't have an account, please{" "}
+              Sign in to manage your listings and reservations. <br />
+              If you don't have an account yet, please{" "}
               <Link to="/register/">register</Link>.
             </p>
           </div>

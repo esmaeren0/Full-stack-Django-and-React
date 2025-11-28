@@ -3,13 +3,18 @@ from django.conf import settings
 
 from core.abstract.serializers import AbstractSerializer
 from core.user.models import User
+from core.booking.models import Reservation, Stay
 
 
 class UserSerializer(AbstractSerializer):
-    posts_count = serializers.SerializerMethodField()
+    stays_count = serializers.SerializerMethodField()
+    reservations_count = serializers.SerializerMethodField()
 
-    def get_posts_count(self, instance):
-        return instance.post_set.all().count()
+    def get_stays_count(self, instance):
+        return Stay.objects.filter(owner=instance).count()
+
+    def get_reservations_count(self, instance):
+        return Reservation.objects.filter(guest=instance).count()
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -38,7 +43,8 @@ class UserSerializer(AbstractSerializer):
             "is_active",
             "created",
             "updated",
-            "posts_count",
+            "stays_count",
+            "reservations_count",
         ]
         # List of all the fields that can only be read by the user
         read_only_field = ["is_active"]
