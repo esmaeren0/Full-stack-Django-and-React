@@ -31,6 +31,9 @@ function NavigationBar() {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
+            <Nav.Link as={Link} to={`/stays/`}>
+              Stays
+            </Nav.Link>
             <NavDropdown
               title={
                 <Image src={user.avatar} roundedCircle width={36} height={36} />

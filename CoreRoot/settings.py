@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "core.auth",
     "core.post",
     "core.comment",
+    "core.booking",
 ]
 
 MIDDLEWARE = [

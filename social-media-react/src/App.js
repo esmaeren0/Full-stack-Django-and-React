@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import SinglePost from "./pages/SinglePost";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
+import Stays from "./pages/Stays";
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
         element={
           <ProtectedRoute>
             <EditProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/stays/"
+        element={
+          <ProtectedRoute>
+            <Stays />
           </ProtectedRoute>
         }
       />
