@@ -27,8 +27,11 @@ function ProfileDetails(props) {
         <div className="d-flex flex-column justify-content-start align-self-center mt-2">
           <p className="fs-4 m-0">{user.name}</p>
           <p className="fs-5">{user.bio ? user.bio : "(No bio.)"}</p>
+          <p className="fs-6 mb-1">
+            <small>{user.stays_count} stays listed</small>
+          </p>
           <p className="fs-6">
-            <small>{user.posts_count} posts</small>
+            <small>{user.reservations_count} reservations</small>
           </p>
           {user.id === getUser().id && (
             <Button

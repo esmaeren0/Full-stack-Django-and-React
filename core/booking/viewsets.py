@@ -1,4 +1,5 @@
 from rest_framework import status
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from core.abstract.viewsets import AbstractViewSet
@@ -27,7 +28,6 @@ class StayViewSet(AbstractViewSet):
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
 class ReservationViewSet(AbstractViewSet):
     http_method_names = ("post", "get", "put", "delete", "patch")
     serializer_class = ReservationSerializer
@@ -47,3 +47,11 @@ class ReservationViewSet(AbstractViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    @action(methods=["post"], detail=True)
+    def cancel(self, request, *args, **kwargs):
+        reservation = self.get_object()
+        reservation.status = Reservation.Status.CANCELLED
+        reservation.save(update_fields=["status", "updated"])
+        serializer = self.get_serializer(reservation)
+        return Response(serializer.data, status=status.HTTP_200_OK)

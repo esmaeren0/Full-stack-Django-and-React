@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Card, Badge, Button } from "react-bootstrap";
 import { Context } from "../Layout";
 
-function StayCard({ stay, onSelect }) {
+function StayCard({ stay, onSelect, canBook = true }) {
   const { setToaster } = useContext(Context);
 
   const handleSelect = () => {
@@ -38,9 +38,11 @@ function StayCard({ stay, onSelect }) {
         </div>
         <div className="d-flex justify-content-between align-items-center">
           <div className="fw-bold">${stay.nightly_price} / night</div>
-          <Button variant="primary" onClick={handleSelect}>
-            Book now
-          </Button>
+          {canBook && (
+            <Button variant="primary" onClick={handleSelect}>
+              Book now
+            </Button>
+          )}
         </div>
       </Card.Body>
     </Card>

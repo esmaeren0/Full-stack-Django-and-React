@@ -4,10 +4,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
-import SinglePost from "./pages/SinglePost";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
-import Stays from "./pages/Stays";
 
 function App() {
   return (
@@ -17,14 +15,6 @@ function App() {
         element={
           <ProtectedRoute>
             <Home />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/post/:postId/"
-        element={
-          <ProtectedRoute>
-            <SinglePost />
           </ProtectedRoute>
         }
       />
@@ -41,14 +31,6 @@ function App() {
         element={
           <ProtectedRoute>
             <EditProfile />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/stays/"
-        element={
-          <ProtectedRoute>
-            <Stays />
           </ProtectedRoute>
         }
       />

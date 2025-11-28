@@ -27,13 +27,11 @@ function NavigationBar() {
     <Navbar bg="primary" variant="dark">
       <Container>
         <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
-          Postagram
+          StayBooker
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link as={Link} to={`/stays/`}>
-              Stays
-            </Nav.Link>
+            <Nav.Link as={Link} to={`/`}>Dashboard</Nav.Link>
             <NavDropdown
               title={
                 <Image src={user.avatar} roundedCircle width={36} height={36} />
