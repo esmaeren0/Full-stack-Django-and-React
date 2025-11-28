@@ -9,6 +9,7 @@ from core.auth.viewsets import (
     LogoutViewSet,
 )
 from core.comment.viewsets import CommentViewSet
+from core.booking.viewsets import StayViewSet, ReservationViewSet
 
 router = routers.SimpleRouter()
 
@@ -27,6 +28,13 @@ router.register(r"auth/logout", LogoutViewSet, basename="auth-logout")
 # ##################################################################### #
 
 router.register(r"user", UserViewSet, basename="user")
+
+# ##################################################################### #
+# ################### BOOKING                   ###################### #
+# ##################################################################### #
+
+router.register(r"stay", StayViewSet, basename="stay")
+router.register(r"reservation", ReservationViewSet, basename="reservation")
 
 # ##################################################################### #
 # ################### POST                       ###################### #
